@@ -9,4 +9,7 @@ public sealed class CriarUsuarioRequest
 
     [Required, EmailAddress, StringLength(180)]
     public string Email { get; init; } = string.Empty;
+    
+    [Required]
+    public DateOnly DataNascimento { get; init; }
 }

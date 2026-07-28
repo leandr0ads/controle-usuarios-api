@@ -2,12 +2,14 @@ namespace ControleUsuariosApi.Domain.Entities;
 
 public sealed class Usuario
 {
-    private Usuario() { }
+    private Usuario()
+    {
+    }
 
-    public Usuario(string nome, string email)
+    public Usuario(string nome, string email, DateOnly dataNascimento)
     {
         Id = Guid.NewGuid();
-        Atualizar(nome, email);
+        Atualizar(nome, email, dataNascimento);
         Ativo = true;
         CriadoEm = DateTime.UtcNow;
     }
@@ -15,14 +17,18 @@ public sealed class Usuario
     public Guid Id { get; private set; }
     public string Nome { get; private set; } = string.Empty;
     public string Email { get; private set; } = string.Empty;
+    public DateOnly DataNascimento { get; private set; }
     public bool Ativo { get; private set; }
+
+
     public DateTime CriadoEm { get; private set; }
     public DateTime? AtualizadoEm { get; private set; }
 
-    public void Atualizar(string nome, string email)
+    public void Atualizar(string nome, string email, DateOnly dataNascimento)
     {
         Nome = nome.Trim();
         Email = email.Trim().ToLowerInvariant();
+        DataNascimento = dataNascimento;
         AtualizadoEm = DateTime.UtcNow;
     }
 
