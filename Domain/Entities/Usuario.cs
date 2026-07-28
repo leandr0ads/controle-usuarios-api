@@ -9,7 +9,7 @@ public sealed class Usuario
     public Usuario(string nome, string email, string telefone, DateOnly dataNascimento)
     {
         Id = Guid.NewGuid();
-        Atualizar(nome, email, telefone,dataNascimento);
+        Atualizar(nome, email, telefone, dataNascimento);
         Ativo = true;
         CriadoEm = DateTime.UtcNow;
     }
