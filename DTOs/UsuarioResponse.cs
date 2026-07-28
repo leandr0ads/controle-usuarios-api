@@ -6,6 +6,7 @@ public sealed record UsuarioResponse(
     string Email,
     string Telefone,
     DateOnly DataNascimento,
+    string NomeResponsavel,
 
     bool Ativo,
     DateTime CriadoEm,
