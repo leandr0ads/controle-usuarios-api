@@ -5,6 +5,7 @@ public sealed record UsuarioResponse(
     string Nome,
     string Email,
     DateOnly DataNascimento,
+    string Telefone,
     bool Ativo,
     DateTime CriadoEm,
     DateTime? AtualizadoEm);
