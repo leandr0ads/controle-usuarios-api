@@ -60,7 +60,7 @@ public sealed class UsuarioService(IUsuarioRepository repository) : IUsuarioServ
         usuario.Nome,
         usuario.Email,
         usuario.Telefone,
-        usuario.DataNascimento,
+        usuario.DataNascimento, 
         usuario.Ativo,
         usuario.CriadoEm,
         usuario.AtualizadoEm);
