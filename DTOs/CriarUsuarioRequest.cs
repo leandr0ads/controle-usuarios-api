@@ -9,4 +9,7 @@ public sealed class CriarUsuarioRequest
 
     [Required, EmailAddress, StringLength(180)]
     public string Email { get; init; } = string.Empty;
+    
+    [Required, StringLength(20)]
+    public string Telefone { get; init; } = string.Empty;
 }
