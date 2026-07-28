@@ -23,7 +23,7 @@ public sealed class UsuarioService(IUsuarioRepository repository) : IUsuarioServ
         if (await repository.EmailExisteAsync(request.Email, null, cancellationToken))
             throw new InvalidOperationException("Já existe um usuário cadastrado com este e-mail.");
 
-        var usuario = new Usuario(request.Nome, request.Email, request.Telefone);
+        var usuario = new Usuario(request.Nome, request.Email, request.Telefone, request.DataNascimento);
         await repository.AdicionarAsync(usuario, cancellationToken);
         await repository.SalvarAlteracoesAsync(cancellationToken);
 
@@ -37,7 +37,7 @@ public sealed class UsuarioService(IUsuarioRepository repository) : IUsuarioServ
         if (await repository.EmailExisteAsync(request.Email, id, cancellationToken))
             throw new InvalidOperationException("Já existe outro usuário cadastrado com este e-mail.");
 
-        usuario.Atualizar(request.Nome, request.Email, request.Telefone);
+        usuario.Atualizar(request.Nome, request.Email, request.Telefone, request.DataNascimento);
         usuario.DefinirStatus(request.Ativo);
         await repository.SalvarAlteracoesAsync(cancellationToken);
 
@@ -60,6 +60,7 @@ public sealed class UsuarioService(IUsuarioRepository repository) : IUsuarioServ
         usuario.Nome,
         usuario.Email,
         usuario.Telefone,
+        usuario.DataNascimento,
         usuario.Ativo,
         usuario.CriadoEm,
         usuario.AtualizadoEm);

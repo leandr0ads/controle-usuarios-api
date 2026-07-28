@@ -9,9 +9,12 @@ public sealed class AtualizarUsuarioRequest
 
     [Required, EmailAddress, StringLength(180)]
     public string Email { get; init; } = string.Empty;
-    
+  
     [Required, StringLength(20)]
     public string Telefone { get; init; } = string.Empty;
+    
+    [Required]
+    public DateOnly DataNascimento { get; init; }
 
     public bool Ativo { get; init; }
 }

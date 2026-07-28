@@ -17,6 +17,7 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbCon
         usuario.Property(x => x.Telefone).HasMaxLength(20).IsRequired();
         usuario.HasIndex(x => x.Email).IsUnique();
         usuario.HasIndex(x => x.Telefone).IsUnique();
+        usuario.Property(x => x.DataNascimento).HasColumnType("date").IsRequired();
         usuario.Property(x => x.Ativo).IsRequired();
         usuario.Property(x => x.CriadoEm).IsRequired();
     }
