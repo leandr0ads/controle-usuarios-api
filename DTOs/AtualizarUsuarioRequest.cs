@@ -15,6 +15,7 @@ public sealed class AtualizarUsuarioRequest
     
     [Required]
     public DateOnly DataNascimento { get; init; }
+    public string NomeResponsavel { get; init; } = string.Empty;
 
     public bool Ativo { get; init; }
 }

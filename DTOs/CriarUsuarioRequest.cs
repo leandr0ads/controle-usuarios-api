@@ -12,7 +12,7 @@ public sealed class CriarUsuarioRequest
   
     [Required, StringLength(20)]
     public string Telefone { get; init; } = string.Empty;
-  
+    public string NomeResponsavel { get; init; } = string.Empty;
     [Required]
     public DateOnly DataNascimento { get; init; }
   

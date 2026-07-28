@@ -6,10 +6,10 @@ public sealed class Usuario
     {
     }
 
-    public Usuario(string nome, string email, string telefone, DateOnly dataNascimento)
+    public Usuario(string nome, string email, string telefone, DateOnly dataNascimento, string? nomeResponsavel)
     {
         Id = Guid.NewGuid();
-        Atualizar(nome, email, telefone, dataNascimento);
+        Atualizar(nome, email, telefone, dataNascimento, nomeResponsavel);
         Ativo = true;
         CriadoEm = DateTime.UtcNow;
     }
@@ -19,19 +19,19 @@ public sealed class Usuario
     public string Email { get; private set; } = string.Empty;    
     public string Telefone { get; set; } = string.Empty;
     public DateOnly DataNascimento { get; private set; }
+    public string? NomeResponsavel { get; set; } = string.Empty;
     public bool Ativo { get; private set; }
-
-
     public DateTime CriadoEm { get; private set; }
     public DateTime? AtualizadoEm { get; private set; }
 
 
-    public void Atualizar(string nome, string email, string telefone, DateOnly dataNascimento)
+    public void Atualizar(string nome, string email, string telefone, DateOnly dataNascimento, string? nomeResponsavel)
     {
         Nome = nome.Trim();
         Email = email.Trim().ToLowerInvariant();
         Telefone = telefone.Trim().ToLowerInvariant();
         DataNascimento = dataNascimento;
+        NomeResponsavel = nomeResponsavel.Trim();
         AtualizadoEm = DateTime.UtcNow;
     }
 
