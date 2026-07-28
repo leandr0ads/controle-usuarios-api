@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+.vs/
+.vscode/
+*.user
+*.suo
+usuarios.db
+usuarios.db-shm
+usuarios.db-wal
